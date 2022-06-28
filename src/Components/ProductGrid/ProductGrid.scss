@@ -1,0 +1,22 @@
+.product-grid {
+    padding: 3rem 0;
+
+    .product-grid__wrap {
+        .product-grid__item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            .thumbnail {
+                width: 100%;
+                aspect-ratio: 1;
+                object-fit: cover;
+            }
+            .title {
+                text-align: center;
+                font-weight: bold;
+                margin: 1rem 0;
+            }
+        }
+    }
+}
