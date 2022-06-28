@@ -7,16 +7,10 @@ use Ress\Controllers\Page;
 use Ress\Controllers\Archive;
 use BoxyBird\Inertia\Inertia;
 
-// Woocommerce
-use Ress\Controllers\Shop;
-use Ress\Controllers\SingleProduct;
-
 // var_dump('test');
 // die();
 
-if (is_shop()) {
-    return Shop::index();
-}
+
 
 if (is_front_page()) {
     return FrontPage::index();
@@ -27,9 +21,6 @@ if (is_single() && 'post' == get_post_type()) {
     return Single::index();
 }
 
-if (is_single() && 'product' == get_post_type()) {
-    return SingleProduct::index();
-}
 
 if (!is_front_page() && is_page()) {
     return Page::index();

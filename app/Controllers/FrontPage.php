@@ -14,6 +14,7 @@ class FrontPage {
             'title' => get_the_title(),
             'content' => $content,
             'posts' => get_posts(),
+            'acf_fields' => get_fields(),
         ]);
     }
 }

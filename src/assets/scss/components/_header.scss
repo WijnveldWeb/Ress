@@ -1,21 +1,78 @@
-.nav {
-    background: #030300;
-    .logo {
-        width: 126px;
-        height: auto;
-    }
+.site-header {
+	position: fixed;
+	width: 100%;
+	height: 60px;
+	z-index: 50;
+	padding-top: 3vh;
+	top: 0;
 
-    .nav-menu {
-        a {
-            font-size: 16px;
-            font-weight: 400;
-            text-decoration: none;
-            transition: .2s ease-in-out;
-            color: #fff;
+	.e__menu-container {
+		position: relative;
+		z-index: 20;
 
-            &:hover {
-                text-decoration: underline;
-            }
-        }
-    }
+		ul.nav {
+			display: flex;
+			padding: 0;
+			margin: 0;
+
+			li {
+				a {
+					position: relative;
+					padding: 10px 24px;
+					color: var(--text_light);
+					font-size: 18px;
+					font-weight: 300;
+					font-size: 14px;
+				}
+			}
+		}
+	}
+
+	.site-branding {
+		z-index: 10;
+		p.site-title {
+			margin: 0;
+			color: var(--text_light);
+		}
+		a {
+			img {
+				height: 50px;
+				width: 100%;
+				object-fit: contain;
+			}
+		}
+	}
+
+	.container {
+		position: relative;
+		&::after {
+			content: '';
+			height: 1px;
+			width: 30px;
+			background: var(--text_light);
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			right: -4%;
+		}
+	}
+	&::after {
+		content: '';
+		width: 100%;
+		height: 0;
+		position: absolute;
+		background: var(--background);
+		top: 0;
+		left: 0;
+		-webkit-transition: 1.3s all cubic-bezier(0.23, 1, 0.32, 1);
+		-moz-transition: 1.3s all cubic-bezier(0.23, 1, 0.32, 1);
+		-ms-transition: 1.3s all cubic-bezier(0.23, 1, 0.32, 1);
+		-o-transition: 1.3s all cubic-bezier(0.23, 1, 0.32, 1);
+		transition: 1.3s all cubic-bezier(0.23, 1, 0.32, 1);
+	}
+	&:hover {
+		&::after {
+			height: 140%;
+		}
+	}
 }

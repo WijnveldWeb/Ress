@@ -10,4 +10,5 @@ return Collecter::collectFiles([
     'routes/head',
     'routes/auth',
     'routes/nav',
+    'routes/options',
 ]);

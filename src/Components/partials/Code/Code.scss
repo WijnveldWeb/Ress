@@ -1,0 +1,132 @@
+section.code {
+	padding-bottom: 200px;
+	padding-top: 150px;
+
+	.code__wrap {
+		.inner-wrapper {
+			position: relative;
+			.code-icon {
+				z-index: -1;
+				position: absolute;
+				top: 50%;
+				transform: translateY(-50%);
+				left: 0;
+				img {
+					scale: 1.15;
+				}
+			}
+			.ontwikkeling-maintext {
+                width: calc(100% - 320px);
+				padding-left: 75px;
+				h1 {
+					color: #fff;
+					text-transform: uppercase;
+					margin: 0;
+					margin-bottom: 25px;
+                    font-weight: 600;
+                    font-size: 40px;
+				}
+				p {
+					color: #707070;
+					margin: 0;
+					margin-bottom: 1rem;
+					font-size: 13px;
+					max-width: 700px;
+					a {
+						font-size: 13px;
+						color: var(--primary);
+						text-decoration: none;
+					}
+				}
+			}
+			.ontwikkeling-talen {
+				padding-right: 50px;
+				margin-top: 30px;
+                width: 320px;
+
+				.metawrapper {
+					position: relative;
+					margin-right: 7%;
+					p.first-title {
+						color: #fff;
+						font-size: 17px;
+					}
+					.line {
+						width: 1px;
+						height: 220px;
+						background: #707070;
+						position: absolute;
+						left: 0;
+						top: 35px;
+						margin-left: 8px;
+					}
+					ul {
+						list-style: none;
+						margin-top: 40px;
+						padding-left: 26px;
+						line-height: 1.6;
+						li {
+							color: #707070;
+							font-size: 15px;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+@media screen and (max-width: 1023px) {
+    section.code {
+        .code__wrap {
+            .inner-wrapper {
+                .ontwikkeling-talen {
+                    padding-right: 20px;
+                    padding-left: 20px;
+                }
+                .ontwikkeling-maintext {
+                    padding-left: 20px;
+                    h1 {
+                        font-size: 30px;
+                    }
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 767px) {
+    section.code {
+        .code__wrap {
+            .inner-wrapper {
+                flex-wrap: wrap;
+
+                .ontwikkeling-maintext {
+                    padding-left: 10px;
+                    padding-right: 10px;
+                    width: 100%;
+                }
+                .ontwikkeling-talen {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 480px) {
+    section.code { 
+        overflow: hidden;
+
+        .code__wrap { 
+            .inner-wrapper {
+                .ontwikkeling-maintext h1 {
+                    font-size: 19px;
+                }
+                .code-icon {
+                    svg {
+                        width: 400px;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,6 +1,7 @@
 <?php
 
 use BoxyBird\Inertia\Inertia;
+use Ress\Controllers\Page;
 
 /**
  * Setup everything we need for the theme.
@@ -148,16 +149,27 @@ add_action( 'wpseo_frontend_presenters',function( $presenters ) {
  */
 if( class_exists('ACF') ) {
     add_action('init', function () {
-        //$front_page = new FrontPage();
-        //$front_page_acf = $front_page->acf_fields();
+        $page = new Page();
+        $page_acf = $page->acf_fields();
+
         $fields = [];
     
-        if (!empty($fields)) {
-            array_push($fields, $front_page_acf);
+        if (!empty($page_acf)) {
+            array_push($fields, $page_acf);
         
             array_walk($fields, function($field) {
                 acf_add_local_field_group($field->build());
             });
         }
     });
+}
+
+
+// Register options page
+if( function_exists('acf_add_options_page') ) {
+    acf_add_options_page(array(
+        'page_title' => 'Footer',
+        'menu_title' => 'Footer',
+        'menu_slug' => 'footer',
+    ));
 }

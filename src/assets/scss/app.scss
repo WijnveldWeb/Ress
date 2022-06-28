@@ -2,30 +2,58 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
-    font-size: 16px;
+:root {
+    --primary: #a72929;
+    --background: #161616;
+    --text_light: #ebebeb;
+    --green_highlight: rgb(0, 112, 0);
+}
+
+body {
+    background: var(--background);
+}
+
+h1, h2, h3, h4, h5, p, * {
+    color: var(--text_light);
+    font-family: 'Poppins';
+}
+
+p, a {
+    font-weight: 300;
 }
 
 a {
-    text-decoration: underline;
+    color: var(--primary);
+    border: none;
+    text-decoration: none;
+
+    &:hover {
+        border: none;
+    }
 }
 
 h1 {
-    font-size: 30px;
-    font-weight: 700;
+    font-size: 45px;
 }
 
 h2 {
-    font-size: 24px;
-    font-weight: 700;
+    font-size: 34px;
 }
 
 h3 {
-    font-size: 20px;
-    font-weight: 700;
+    font-size: 27px;
 }
 
-h4 {
-    font-size: 18px;
-    font-weight: 700;
+.add-to-cart {
+    display: inline-flex;
+
+    * {
+        text-align: center;
+    }
+
+    .button {
+        background: var(--primary);
+        color: #fff;
+        padding: .35rem 2rem;
+    }
 }
