@@ -2,6 +2,7 @@
 
 use BoxyBird\Inertia\Inertia;
 use Ress\Controllers\Page;
+use Ress\Controllers\ProjectenSingle;
 
 /**
  * Setup everything we need for the theme.
@@ -149,13 +150,15 @@ add_action( 'wpseo_frontend_presenters',function( $presenters ) {
  */
 if( class_exists('ACF') ) {
     add_action('init', function () {
+        $projecten_single = new ProjectenSingle();
         $page = new Page();
         $page_acf = $page->acf_fields();
+        $projecten_single_acf = $projecten_single->acf_fields();
 
         $fields = [];
     
         if (!empty($page_acf)) {
-            array_push($fields, $page_acf);
+            array_push($fields, $page_acf, $projecten_single_acf);
         
             array_walk($fields, function($field) {
                 acf_add_local_field_group($field->build());
@@ -163,6 +166,32 @@ if( class_exists('ACF') ) {
         }
     });
 }
+
+// register post type projecten
+add_action('after_setup_theme', function () {
+    register_post_type('projecten', [
+        'labels' => [
+            'name' => 'Projecten',
+            'singular_name' => 'Project',
+            'add_new_item' => 'Voeg nieuw project toe',
+            'edit_item' => 'Bewerk project',
+            'view_item' => 'Bekijk project',
+            'search_items' => 'Zoek project',
+            'not_found' => 'Geen projecten gevonden',
+            'not_found_in_trash' => 'Geen projecten gevonden in de prullenbak',
+        ],
+        'public' => true,
+        'has_archive' => true,
+        'menu_icon' => 'dashicons-portfolio',
+        'supports' => [
+            'title',
+            'editor',
+            'thumbnail',
+            'excerpt',
+            'revisions',
+        ],
+    ]);
+});
 
 
 // Register options page

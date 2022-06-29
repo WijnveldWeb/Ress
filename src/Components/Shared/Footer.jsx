@@ -13,14 +13,14 @@ const Footer = () => {
                         <p className="footer-contact-title">
                             contact
                         </p>
-                        <Link href="tel:+31 6 207 232">+31 6 207 232</Link>
-                        <Link href="mailto:info@erwinwebsites.nl">info@erwinwebsites.nl</Link>
+                        {footer.phone_number && <a href={footer.phone_number.url}>{footer.phone_number.title}</a>}
+                        {footer.email && <a href={footer.email.url}>{footer.email.title}</a>}
                     </div>
                 </div>
                 <div className="footer-legal container flex flex-wrap justify-between items-center">
-                    <p className="e__w-33"><Link href="/">© 2022 - ErwinWebsites</Link></p>
-                    <p className="e__w-33"><Link href="/privacybeleid">Privacy policy</Link></p>
-                    <p className="e__w-33"><Link href="/contact/">Contactformulier</Link></p>
+                    <p className="e__w-33"><Link href="/">© 2022 - Erwin Wijnveld</Link></p>
+                    {footer.bottom_left && <p className="e__w-33"><Link href={footer.bottom_left.url}>{footer.bottom_left.title}</Link></p>}
+                    {footer.bottom_right && <p className="e__w-33"><Link href={footer.bottom_right.url}>{footer.bottom_right.title}</Link></p>}
                 </div>
             </div>
             <div className="footer-info">

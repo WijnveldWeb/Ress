@@ -1,6 +1,7 @@
 import React from 'react'
 import Code from './partials/Code/Code'
 import Hero from './partials/Hero/Hero'
+import HeroProject from './partials/HeroProject/HeroProject'
 import Map from './partials/Map/Map'
 
 const FlexibleLayout = ({fields}) => {
@@ -11,6 +12,7 @@ const FlexibleLayout = ({fields}) => {
                 if (field.acf_fc_layout === 'hero') {return <Hero key={index} fields={field.hero} />}
                 if (field.acf_fc_layout === 'map') {return <Map key={index} fields={field.map} />}
                 if (field.acf_fc_layout === 'code') {return <Code key={index} fields={field.code} />}
+                if (field.acf_fc_layout === 'heroProject') {return <HeroProject key={index} fields={field.heroProject} />}
             })}
         </div>
     )

@@ -3,11 +3,13 @@
 use Ress\Inc\Collecter;
 use Ress\Controllers\FrontPage;
 use Ress\Controllers\Single;
+use Ress\Controllers\ProjectenSingle;
 use Ress\Controllers\Page;
+use Ress\Controllers\ProjectenArchive;
 use Ress\Controllers\Archive;
 use BoxyBird\Inertia\Inertia;
 
-// var_dump('test');
+// var_dump(get_post_type());
 // die();
 
 
@@ -21,6 +23,10 @@ if (is_single() && 'post' == get_post_type()) {
     return Single::index();
 }
 
+if (is_single() && 'projecten' == get_post_type()) {
+    return ProjectenSingle::index();
+}
+
 
 if (!is_front_page() && is_page()) {
     return Page::index();
@@ -28,6 +34,10 @@ if (!is_front_page() && is_page()) {
 
 if (is_archive() && 'post' == get_post_type()) {
     return Archive::index();
+}
+
+if (is_archive() && 'projecten' == get_post_type()) {
+    return ProjectenArchive::index();
 }
 
 if (is_404()) {
